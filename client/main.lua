@@ -17,6 +17,12 @@ AddEventHandler('esx_corona:cure', function()
 	SetTimecycleModifierStrength(0.0)
 	ShakeGameplayCam("FAMILY5_DRUG_TRIP_SHAKE", 0.0)
 	SetPedMotionBlur(PlayerPedId(), false)
+	Citizen.Wait(5000)
+	local chanceToDie = math.random(0, 100)
+
+	if chanceToDie > (100 - 95) then
+		SetEntityHealth(PlayerPedId(), 0)
+	end
 end)
 
 RegisterNetEvent('esx_corona:infect')
